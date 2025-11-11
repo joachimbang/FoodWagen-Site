@@ -1,63 +1,56 @@
-// HeroSection component
-
 import Image from "next/image";
-import React from 'react';
+import React from "react";
 
 export default function HeroSection() {
+  return (
+    <header className="food-hero-section pt-16 pb-20 overflow-hidden">
+      <div className="container mx-auto px-40 flex flex-col lg:flex-row justify-between items-center">
 
-    return (
-        // Main container (Hero Section) with background color
-        <header className="food-hero-section pt-16 pb-20 overflow-hidden">
-            <div className="container mx-auto px-4 flex flex-col lg:flex-row justify-center items-center">
+        {/* Left column */}
+        <div className="space-y-6 px-4 md:px-10 lg:px-20 text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            Are you starving?
+          </h1>
 
-                {/* Left column: text and form */}
-                <div className="space-y-6 px-20">
-                    {/* Main title */}
-                    <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-                        Are you starving?
-                    </h1>
+          <p className="text-base sm:text-lg">
+            Within a few clicks, find meals that are accessible near you.
+          </p>
 
-                    {/* Subtitle */}
-                    <p className=" text-lg">
-                        Within a few clicks, find meals that are accessible near you.
-                    </p>
+          {/* Search card */}
+          <div className="bg-white p-4 rounded-2xl shadow-xl space-y-4 w-full max-w-lg mx-auto lg:mx-0">
 
-                    {/* Search card container */}
-                    <div
-                        // bg-white, rounded corners, shadow
-                        className="bg-white p-4 rounded-2xl shadow-xl space-y-4 max-w-lg"
-                        data-testid="food-search-card"
-                    >
-                        {/* 1. Delivery/Pickup toggle buttons */}
-                        <div className="flex p-1 rounded-full w-fit text-sm font-semibold">
-                            {/* Active button (orange) */}
-                            <button className="px-5 py-2 text-[#F17228] bg-[#F172281A] rounded-lg font-bold text-[18px] transition duration-150" data-testid="food-delivery-btn">
-                                Delivery
-                            </button>
-                            {/* Inactive button (grey text) */}
-                            <button className="px-5 py-2 rounded-lg text-[#757575] font-bold text-[18px] transition duration-150" data-testid="food-delivery-btn">
-                                Pickup
-                            </button>
-                        </div>
-                        <div className="border-t border-gray-200 my-4"></div>
-                        {/* 2. Search form (input and button) */}
-                        <form className="flex items-center space-x-2">
-                            {/* Search input field */}
-                            <div className="w-[595px] h-[60px] bg-[#F5F5F5] rounded-lg py-[7px] pl-[16px] pr-4 flex items-center gap-3">
-                                <input type="text" placeholder="What do you like to eat today?" className="font-open-sans text-base lg:text-lg font-normal leading-normal tracking-normal bg-gray-500" data-testid="food-search-input" name="food_name" />
-                            </div>
-                            {/* Search button */}
-                            <button
-                                type="submit"
-                                className="w-[197px]h-[60px] rounded-lg py-[21px] px-[48px] flex gap-[10px] bg-[linear-gradient(95.71deg,_#FF7A7A_-39.64%,_#F75900_135.31%)] items-center justify-center"
-                                data-testid="food-find-meal-btn"
-                            >
-                                Find Meal
-                            </button>
-                        </form>
-                    </div>
-                </div>
+            {/* Toggle buttons */}
+            <div className="flex p-1 rounded-full w-fit text-sm font-semibold mx-auto lg:mx-0">
+              <button className="px-4 sm:px-5 py-2 text-[#F17228] bg-[#F172281A] rounded-lg font-bold text-[16px] sm:text-[18px]">
+                Delivery
+              </button>
 
+              <button className="px-4 sm:px-5 py-2 rounded-lg text-[#757575] font-bold text-[16px] sm:text-[18px]">
+                Pickup
+              </button>
+            </div>
+
+            <div className="border-t border-gray-200 my-4"></div>
+
+            {/* Search form */}
+            <form className="flex flex-col sm:flex-row items-center gap-3 w-full">
+              <div className="w-full bg-[#F5F5F5] h-[55px] sm:h-[60px] rounded-lg px-4 flex items-center">
+                <input
+                  type="text"
+                  placeholder="What do you like to eat today?"
+                  className="w-full bg-transparent text-sm sm:text-base font-normal"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full sm:w-auto h-[55px] sm:h-[60px] rounded-lg px-6 bg-[linear-gradient(95.71deg,#FF7A7A_-39.64%,#F75900_135.31%)] text-white font-semibold"
+              >
+                Find Meal
+              </button>
+            </form>
+          </div>
+        </div>
                 {/* Right column: image */}
 
                 <div className=" px-10 size-[450px] flex justify-center pt-40 lg:mt-0 lg:ml-10">
@@ -68,28 +61,11 @@ export default function HeroSection() {
                             fill={true}
                             // height={450}
                             // width={450}
-                            className="object-cover rounded-full shadow-[-30px_20px_20px_05px_rgba(0,0,0,0.35)] shadow-black/30"
+                            className="object-cover overflow-hidden rounded-full shadow-[-30px_20px_20px_05px_rgba(0,0,0,0.35)] shadow-black/30"
                             priority
                         />
                     </div>
-
-
-                    {/* </div> */}
                 </div>
-                {/* <div className=" lg:block relative h-[400px] ">
-
-                    <div className="absolute -mx-140 w-[450px] h-[450px] top-20 right-0">
-                        <Image
-                            src="/plate.png"
-                            alt="Delicious food bowl with egg and ramen"
-                            fill={true}
-                            // height={450}
-                            // width={450}
-                            className="object-cover rounded-full shadow-lg drop-shadow-2xl"
-                            priority
-                        />
-                    </div>
-                </div> */}
             </div>
         </header>
     );
