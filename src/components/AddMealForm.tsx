@@ -53,10 +53,41 @@ export default function AddMealForm({ onClose }: AddMealFormProps) {
     return Object.keys(newErrors).length === 0;
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validate()) return;
 
+    setLoading(true);
+    try {
+      const res = await fetch("/api/meals", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed to save meal");
+
+      // Reset the form
+      setForm({
+        name: "",
+        rating: "",
+        image: "",
+        restaurant: "",
+        logo: "",
+        status: "Open Now",
+      });
+      setErrors({});
+
+      // Close the modal after success
+      onClose();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <form className="space-y-5" >
+    <form className="space-y-5" onSubmit={handleSubmit}>
       {/* Name */}
       <div className="flex flex-col">
         <label htmlFor="food_name" className="sr-only">Food Name</label>

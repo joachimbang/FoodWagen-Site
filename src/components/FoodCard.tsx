@@ -5,7 +5,6 @@ import EditMealForm from "./EditMealForm";
 import EditMealModal from "./EditMealModal";
 import DeleteMealForm from "./DeleteMealForm";
 import DeleteMealModal from "./DeleteMealModal";
-// import DeleteMealModal from "./DeletemealModal";
 
 interface FoodCardProps {
   id: string;

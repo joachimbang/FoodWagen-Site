@@ -1,12 +1,12 @@
-// AddMealModal.tsx
+// Modal.tsx
 "use client";
 
-interface AddMealModalProps {
+interface ModalProps {
   children: React.ReactNode;
   onClose: () => void;
 }
 
-export default function AddMealModal({ children, onClose }: AddMealModalProps) {
+export default function Modal({ children, onClose }: ModalProps) {
   return (
     <div
       className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"

@@ -66,10 +66,34 @@ export default function EditMealForm({ onClose, initialData }: EditMealFormProps
     return Object.keys(newErrors).length === 0;
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validate()) return;
 
+    setLoading(true);
+    try {
+      const payload = { ...form, rating: Number(form.rating) };
+      const res = await fetch(`/api/meals/${form.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const msg = await res.text();
+        throw new Error(msg || "Failed to save meal");
+      }
+      setForm({ id: "", name: "", rating: "", image: "", restaurant: "", logo: "", status: "" });
+      setErrors({});
+      onClose();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <form className="space-y-5">
+    <form className="space-y-5" onSubmit={handleSubmit}>
       {/* Name */}
       <div className="flex flex-col">
         <label htmlFor="food_name" className="sr-only">Food Name</label>
