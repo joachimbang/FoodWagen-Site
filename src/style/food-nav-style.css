@@ -1,0 +1,41 @@
+@layer components{
+
+    /* title styles */
+    .food-logo-food {
+        @apply font-sans font-bold text-[31.11px] leading-[120%] tracking-[-0.025em];
+    background: linear-gradient(90deg, #FF6A00 0%, #FF9A0E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .food-logo-wagen {
+    @apply font-sans font-bold text-[31.11px] leading-[120%] tracking-[-0.025em];
+    background: linear-gradient(90deg, #FFBA26 0%, #FF9A0E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* button styles */
+  .food-btn-add{
+
+    @apply inline-flex items-center justify-center gap-[10px];
+    @apply px-[24px] py-[12px];
+
+    width: 150px;
+    height: 42px;
+    @apply rounded-[14px];
+
+    @apply font-sans font-bold text-white text-[18px] leading-[120%] tracking-[-0.025em];
+
+    background: linear-gradient(97.86deg, #FFBA26 -8.95%, #FF9A0E 109.24%);
+  }
+
+  .food-btn-add:hover{
+    filter: brightness(1.05);
+  box-shadow:
+    0px 24px 48px 0px #FFAE004A,
+    0px 6px 12px 0px #FFAE0042;
+  }
+}
