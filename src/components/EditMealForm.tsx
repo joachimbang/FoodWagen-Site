@@ -163,9 +163,9 @@ export default function EditMealForm({ onClose, initialData }: EditMealFormProps
           {loading ? "Updating Food …" : "Update Food"}
         </button>
         <button
-          type="button"
-          className="flex-1 text-gray-700 py-3 border border-[#FF9A0E] rounded-lg font-semibold"
-          onClick={onClose}
+          className="flex-1 food-btn-add text-white py-3 rounded-lg font-semibold disabled:opacity-50"
+  data-testid="food-edit-btn"
+  type="submit" onClick={onClose}
         >
           Cancel
         </button>
