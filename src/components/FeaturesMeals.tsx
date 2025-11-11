@@ -16,7 +16,7 @@ export default function FeaturedMeals() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-[30px] gap-y-10">
 
-                <FoodCard/>
+                <FoodCard id={""} name={""} price={0} description={""} imageUrl={""} rating={0} restaurant={""} logo={""}/>
             </div>
 
             <div className="flex justify-center mt-10">
