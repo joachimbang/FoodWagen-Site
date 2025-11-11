@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 
-interface FoodCardProps {
-}
 
 
 export default function FoodCard({
 
-}: FoodCardProps) {
+}) {
 
     const statusClasses =
         status === "Open Now"
