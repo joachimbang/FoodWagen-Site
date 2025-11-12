@@ -1,0 +1,17 @@
+@layer components{
+
+    .food-hero-section{
+        background-color:  #FFB30E;
+  /* height: 628px; */
+    }
+    .food-hero-section-title {
+    @apply font-sans text-[44px] leading-[100%] tracking-[0];
+
+
+}
+
+.food-hero-section-title {
+    @apply font-sans text-[22px] leading-[100%] tracking-[0];
+
+}
+}

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @import "../style/food-nav-style.css";
+@import "../style/food-header-styles.css";
 
 :root {
   --background: #ffffff;
