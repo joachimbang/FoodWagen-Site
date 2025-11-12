@@ -8,6 +8,7 @@ interface AddMealFormProps {
 
 interface FormData {
   name: string;
+  price: string;
   rating: string;
   image: string;
   restaurant: string;
@@ -17,6 +18,7 @@ interface FormData {
 
 interface FormErrors {
   name?: string;
+  price?: string;
   rating?: string;
   image?: string;
   restaurant?: string;
@@ -27,6 +29,7 @@ interface FormErrors {
 export default function AddMealForm({ onClose }: AddMealFormProps) {
   const [form, setForm] = useState<FormData>({
     name: "",
+    price:"",
     rating: "",
     image: "",
     restaurant: "",
@@ -41,6 +44,8 @@ export default function AddMealForm({ onClose }: AddMealFormProps) {
     const newErrors: FormErrors = {};
 
     if (!form.name) newErrors.name = "Food Name is required";
+    const priceNum = Number(form.price);
+    if (!form.price || isNaN(priceNum) || priceNum <= 0) newErrors.price = "Price must be a positive number";
     const ratingNum = Number(form.rating);
     if (!form.rating || isNaN(ratingNum) || ratingNum < 1 || ratingNum > 5)
       newErrors.rating = "Food Rating must be a number";
@@ -69,6 +74,7 @@ export default function AddMealForm({ onClose }: AddMealFormProps) {
       // Reset the form
       setForm({
         name: "",
+        price: "",
         rating: "",
         image: "",
         restaurant: "",

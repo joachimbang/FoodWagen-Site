@@ -10,7 +10,7 @@ export default function NavBar() {
   return (
     <>
       {/* Navbar */}
-      <div className="flex justify-between px-6 py-4 bg-white">
+      <div className="flex justify-between px-20 py-4 bg-white">
         {/* Logo */}
         <div>
           <span className="food-logo-food ">Food</span>
@@ -26,7 +26,7 @@ export default function NavBar() {
             onClick={() => setOpen(true)}
             data-test-id="food-open-modal-btn"
           >
-            Add
+            Add Meal
           </button>
         </div>
       </div>

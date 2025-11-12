@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter, Mail } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="bg-black text-white px-6 md:px-20 lg:px-40 py-14">
+        <footer className="bg-black text-white flex flex-col px-20 lg:px-40 py-14">
             <div className="flex flex-col lg:flex-row justify-between gap-10">
 
                 {/* Footer Menu Items */}
@@ -74,7 +74,7 @@ export default function Footer() {
             </div>
             <div className="flex justify-between">
                 <div><p className="text-[#F5F5F5]">All rights Reserved © 2024 FoodWagen</p></div>
-                <div><p className="text-[#F5F5F5] font-bold">Made by JoachimBang</p></div>
+                <div><p className="text-[#F5F5F5] font-bold">spMade by JoachimBang</p></div>
             </div>
         </footer>
     );

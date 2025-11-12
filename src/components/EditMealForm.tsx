@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface EditMealFormProps {
   onClose: () => void;
@@ -48,6 +49,7 @@ export default function EditMealForm({ onClose, initialData }: EditMealFormProps
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     if (initialData) setForm(initialData);
@@ -82,6 +84,7 @@ export default function EditMealForm({ onClose, initialData }: EditMealFormProps
         const msg = await res.text();
         throw new Error(msg || "Failed to save meal");
       }
+      await queryClient.invalidateQueries({ queryKey: ["meals"] });
       setForm({ id: "", name: "", rating: "", image: "", restaurant: "", logo: "", status: "" });
       setErrors({});
       onClose();

@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface DeleteMealFormProps {
   onClose: () => void;
@@ -18,6 +19,7 @@ interface DeleteMealFormProps {
 
 export default function DeleteMealForm({ onClose, initialData }: DeleteMealFormProps) {
   const [loading, setLoading] = useState(false);
+  const queryClient = useQueryClient();
 
   const handleDelete = async () => {
     if (!initialData?.id) return;
@@ -25,6 +27,7 @@ export default function DeleteMealForm({ onClose, initialData }: DeleteMealFormP
     try {
       const res = await fetch(`/api/meals/${initialData.id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed to delete meal");
+      await queryClient.invalidateQueries({ queryKey: ["meals"] });
       onClose();
     } catch (err) {
       console.error("DELETE ERROR:", err);
